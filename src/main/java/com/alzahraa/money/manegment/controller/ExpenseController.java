@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,13 +37,14 @@ public class ExpenseController {
 		return expenseService.getAllExpenses();
 	}
 
-	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/v1/expenses/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ExpenseResponseDTO getExpenseById(@PathVariable Long id) {
 		return expenseService.getExpenseById(id);
 	}
 
-	@DeleteMapping("/{id}")
-	public void deleteExpense(@PathVariable Long id) {
+	@DeleteMapping("/v1/delete/{id}")
+	public ResponseEntity<Boolean> deleteExpense(@PathVariable Long id) {
 		expenseService.deleteExpense(id);
+		return ResponseEntity.ok(true);
 	}
 }
