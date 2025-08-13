@@ -4,15 +4,7 @@ import java.time.LocalDate;
 
 import com.alzahraa.money.manegment.enums.MaintenanceTypeEnum;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+ 
 public class MaintenanceRequestDTO {
 	private String itemName;
 	private MaintenanceTypeEnum maintenanceType;

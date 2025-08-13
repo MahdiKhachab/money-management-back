@@ -2,13 +2,7 @@ package com.alzahraa.money.manegment.dto;
 
 import com.alzahraa.money.manegment.enums.ExpenseCategoryEnum;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class CategorySummaryDTO {
 
 	private ExpenseCategoryEnum category;

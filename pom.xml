@@ -12,7 +12,8 @@
 	<groupId>com.alzahraa</groupId>
 	<artifactId>money.manegment</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>money.manegment</name>
+	<packaging>war</packaging>
+	<name>ZahraaAPI</name>
 	<description>Al-Zahraa Mangement System</description>
 	<url />
 	<licenses>
@@ -31,6 +32,13 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 		<!-- Spring Boot Web -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -84,7 +92,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-		
+
 		<!-- JWT -->
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
@@ -106,6 +114,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>ZahraaAPI</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

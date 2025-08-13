@@ -1,15 +1,10 @@
 package com.alzahraa.money.manegment.dto;
 
-import com.alzahraa.money.manegment.enums.IncomeSourceTypeEnum;
-import lombok.*;
-
 import java.time.LocalDate;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+import com.alzahraa.money.manegment.enums.IncomeSourceTypeEnum;
+
+ 
 public class IncomeResponseDTO {
 
 	private Long id;

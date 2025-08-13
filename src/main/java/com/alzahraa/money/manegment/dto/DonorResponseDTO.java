@@ -1,8 +1,5 @@
 package com.alzahraa.money.manegment.dto;
 
-import lombok.Data;
-
-@Data
 public class DonorResponseDTO {
 	private Long id;
 	private String fullName;

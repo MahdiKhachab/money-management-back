@@ -1,12 +1,5 @@
 package com.alzahraa.money.manegment.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class AnnualReportDTO {
 	private int year;
 	private double totalIncome;

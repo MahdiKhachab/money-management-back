@@ -1,13 +1,7 @@
 package com.alzahraa.money.manegment.dto;
 
 import com.alzahraa.money.manegment.enums.IncomeSourceTypeEnum;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class SourceSummaryDTO {
 	
 	private IncomeSourceTypeEnum sourceType;

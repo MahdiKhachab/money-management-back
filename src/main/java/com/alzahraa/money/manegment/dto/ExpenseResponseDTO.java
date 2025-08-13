@@ -4,15 +4,6 @@ import java.time.LocalDate;
 
 import com.alzahraa.money.manegment.enums.ExpenseCategoryEnum;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class ExpenseResponseDTO {
 	private Long id;
 	private Double amount;
