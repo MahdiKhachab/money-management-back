@@ -12,5 +12,7 @@ public interface MaintenanceService {
 
 	MaintenanceResponseDTO getMaintenanceById(Long id);
 
+	MaintenanceResponseDTO updateMaintenance(Long id, MaintenanceRequestDTO dto);
+
 	void deleteMaintenance(Long id);
 }

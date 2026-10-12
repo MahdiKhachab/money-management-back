@@ -56,6 +56,25 @@ public class IncomeServiceImpl implements IncomeService {
 	}
 
 	@Override
+	public IncomeResponseDTO updateIncome(Long id, IncomeRequestDTO dto) {
+		IncomeEntity income = incomeRepository.findById(id).orElseThrow(() -> new RuntimeException("Income not found"));
+		income.setAmount(dto.getAmount());
+		income.setSourceType(dto.getSourceType());
+		income.setDescription(dto.getDescription());
+		income.setDateReceived(dto.getDateReceived());
+
+		if (dto.getDonorId() != null) {
+			DonorEntity donor = donorRepository.findById(dto.getDonorId())
+					.orElseThrow(() -> new RuntimeException("Donor not found"));
+			income.setDonor(donor);
+		} else {
+			income.setDonor(null);
+		}
+
+		return mapToResponse(incomeRepository.save(income));
+	}
+
+	@Override
 	public void deleteIncome(Long id) {
 		incomeRepository.deleteById(id);
 	}
