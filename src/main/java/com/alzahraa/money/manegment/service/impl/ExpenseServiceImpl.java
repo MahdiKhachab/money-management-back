@@ -46,6 +46,17 @@ public class ExpenseServiceImpl implements ExpenseService {
 	}
 
 	@Override
+	public ExpenseResponseDTO updateExpense(Long id, ExpenseRequestDTO dto) {
+		ExpenseEntity entity = expenseRepository.findById(id)
+				.orElseThrow(() -> new RuntimeException("Expense not found with id: " + id));
+		entity.setAmount(dto.getAmount());
+		entity.setCategory(dto.getCategory());
+		entity.setDetails(dto.getDetails());
+		entity.setDateSpent(dto.getDateSpent());
+		return mapToResponse(expenseRepository.save(entity));
+	}
+
+	@Override
 	public void deleteExpense(Long id) {
 		expenseRepository.deleteById(id);
 	}

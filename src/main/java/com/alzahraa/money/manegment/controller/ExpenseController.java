@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,12 +38,17 @@ public class ExpenseController {
 		return expenseService.getAllExpenses();
 	}
 
-	@GetMapping(value = "/v1/expenses/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = { "/{id}", "/v1/expenses/{id}" }, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ExpenseResponseDTO getExpenseById(@PathVariable Long id) {
 		return expenseService.getExpenseById(id);
 	}
 
-	@DeleteMapping("/v1/delete/{id}")
+	@PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ExpenseResponseDTO updateExpense(@PathVariable Long id, @RequestBody ExpenseRequestDTO dto) {
+		return expenseService.updateExpense(id, dto);
+	}
+
+	@DeleteMapping({ "/{id}", "/v1/delete/{id}" })
 	public ResponseEntity<Boolean> deleteExpense(@PathVariable Long id) {
 		expenseService.deleteExpense(id);
 		return ResponseEntity.ok(true);

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,6 +41,11 @@ public class IncomeController {
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public IncomeResponseDTO getIncomeById(@PathVariable Long id) {
 		return incomeService.getIncomeById(id);
+	}
+
+	@PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public IncomeResponseDTO updateIncome(@PathVariable Long id, @RequestBody IncomeRequestDTO incomeRequestDTO) {
+		return incomeService.updateIncome(id, incomeRequestDTO);
 	}
 
 	@DeleteMapping("/{id}")

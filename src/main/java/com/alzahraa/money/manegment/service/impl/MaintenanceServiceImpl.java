@@ -47,6 +47,18 @@ public class MaintenanceServiceImpl implements MaintenanceService {
 	}
 
 	@Override
+	public MaintenanceResponseDTO updateMaintenance(Long id, MaintenanceRequestDTO dto) {
+		MaintenanceEntity entity = maintenanceRepository.findById(id)
+				.orElseThrow(() -> new RuntimeException("Maintenance not found with id: " + id));
+		entity.setItemName(dto.getItemName());
+		entity.setMaintenanceType(dto.getMaintenanceType());
+		entity.setDate(dto.getDate());
+		entity.setCost(dto.getCost());
+		entity.setRemarks(dto.getRemarks());
+		return mapToResponse(maintenanceRepository.save(entity));
+	}
+
+	@Override
 	public void deleteMaintenance(Long id) {
 		maintenanceRepository.deleteById(id);
 	}

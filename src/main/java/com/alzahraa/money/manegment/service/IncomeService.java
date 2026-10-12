@@ -13,5 +13,7 @@ public interface IncomeService {
 
 	IncomeResponseDTO getIncomeById(Long id);
 
+	IncomeResponseDTO updateIncome(Long id, IncomeRequestDTO incomeRequestDTO);
+
 	void deleteIncome(Long id);
 }
